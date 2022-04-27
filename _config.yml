@@ -1,2 +1,4 @@
 	name: Ken Ko
 	markdown: kramdown
+
+theme: jekyll-theme-cayman
