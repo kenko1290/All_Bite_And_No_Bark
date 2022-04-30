@@ -1,2 +1,2 @@
-# kenko1290.github.io
-test
+# All Bite and No Bark
+This project attempts to answer a rather frivolous question: if I cross paths with a dog on the street, can I predict with any certainty the probability that I will get bitten based on what I can see about the dog? In other words, if I see a chihuahua coming towards me, would I be justified in crossing the street even if this may hurt the dog's feelings or should I continue along my intended path and risk the integrity of my ankles? This attempt is supported by two dog-related datasets obtained from NYC OpenData, on which data cleaning, visualization, and predictive modeling techniques were applied.
