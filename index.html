@@ -88,9 +88,12 @@
 							dog owners, along with Brooklyn Heights and Park Slope in Brooklyn. Black areas are those with no dog licenses, which are exclusively areas with no
 							residents such as airports and Central Park.
 						</h4>
-						<h4>
+						<h4 style="margin-bottom:10px">
 							<img src="visualizations/Avg_Yearly_Licenses_Map.png" class="map">
 						</h4>
+						<p>
+							Choropleth Map Showing Average Yearly Number of Dog Licenses By Zip Code
+						</p>
 						<h4>
 							To create the choropleth map illustrating the number of dog bite incidents by zip code, we grouped the DOHMH-Dog-Bite-Data dataset by Zip Code,
 							counted the number of incidents in each year from 2015 to 2021, and found the average number of incidents per year for each zip code. A choropleth
@@ -103,9 +106,12 @@
 							rates are higher in these areas because owners like to bring their dogs there. The average number of dogs in these areas may actually be much higher
 							than the number of licensed dogs living in these areas would suggest and more dogs would naturally result in more incidents.
 						</h4>
-						<h4>
+						<h4 style="margin-bottom:10px">
 							<img src="visualizations/Avg_Yearly_Bites_Map.png" class="map">
 						</h4>
+						<p>
+							Choropleth Map Showing Average Yearly Number of Dog Bite Incidents By Zip Code
+						</p>
 					</h3>
 					<h3>Bar Graphs
 						<h4>
@@ -116,18 +122,24 @@
 							average, 3.85% of the total Non-Sporting population is involved in a bite incident every year. By comparison, only 0.7% of the total Hound
 							population is involved in a bite incident on average every year.
 						</h4>
-						<h4>
+						<h4 style="margin-bottom:5px">
 							<img src="visualizations/Bar_plot_by_group(avg).png" class="graph">
 						</h4>
+						<p>
+							Bar Graph Showing Average Number of Bite Incidents as a Percentage of Total Population Per Dog Group
+						</p>
 						<h4>
 							Another column was created in the merged dataset to calculate the average yearly percentage of each dog gender that would be involved in an indident.
 							This percentage was plotted as a bar graph (again, using Python's Matplotlib.pyplot libary), shown below. At a glance, there also appears to be some
 							correlation between an individual's gender and propensity to bite. On average, 0.94% of the total female dog population is involved in a bite incident
 							every year, while 1.97% of the total male dog population is involved, over twice the percentage of females.
 						</h4>
-						<h4>
+						<h4 style="margin-bottom:5px">
 							<img src="visualizations/Bar_plot_gender(avg).png" class="graph">
 						</h4>
+						<p>
+							Bar Graph Showing Average Number of Bite Incidents as a Percentage of Total Population Per Dog Gender
+						</p>
 					</h3>
 				</h2>
 				<h2>Predictive Model
@@ -135,7 +147,7 @@
 						<h4>
 							From the bar graphs, we can see that there may be some correlation between a dog's group classification and gender, and its likelihood to bite. To
 							try and quantity what this probability may be, we first extracted the average number of dog licenses and bite incidents for each dog group
-							classification and gender. We employed a logistic regression model on this datausing Python's sklean library. A logistic regression model
+							classification and gender. We employed a logistic regression model on this data using Python's sklean library. A logistic regression model
 							was chosen because the dependent variable here has a binary outcome (either a dog will bite or it won't). The independent variables in the model
 							will be the Dog Group classification and gender of the dogs. Because these are categorical variables, the data was first one-hot encoded using the
 							Python Pandas library. The dataset was then exploded in the following way: if the data showed that there were on average 5560 female Herding dogs
@@ -151,16 +163,19 @@
 							predicted results would result in a difference of 0, while incorrectly predicted results would result in a difference of 1 or -1. This difference was
 							plotted against the row number of the dataset that the predicted result originated from. The resulting graph is shown below.
 						</h4>
-						<h4>
+						<h4 style="margin-bottom:0px">
 							<img src="visualizations/Logistic_regression.png" class="logreg">
 						</h4>
+						<p>
+							Logistic Regression Residuals Per Row of Test Data
+						</p>
 						<h4>
 							The model returns the following equation and coefficients:
 						</h4>
-						<p>
+						<strong>
 							Outcome = 0.0903(Herding) - 0.6041(Hound) + 1.089(Non-Sporting) - 0.6026(Sporting) - 0.2735(Terrier) - 0.4766(Toy)
 							+ 0.7768(Working) - 0.3635(Female) + 0.3631(Male)
-						</p>
+						</strong>
 						<h4>
 							As expected from the above bar graphs, being in the Non-Sporting or Working groups and being a male appear to have the greatest positive correlation towards
 							predicting whether a dog will bite. The model appears to be extremely successful in predicting whether a dog will bite based on its Group classifification
